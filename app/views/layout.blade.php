@@ -75,7 +75,9 @@
                     @endif
                 </a>
 
+                <!--
                 <a class="button" href="{{{ URL::route('donate') }}}">Donate</a>
+                -->
             </div>
         </div> 
 
@@ -86,6 +88,8 @@
         @if(Session::has('success'))
             <div class="message message-success">{{{ Session::get('success') }}}</div>
         @endif
+
+        <div class="message message-info">Our goddess is back again, after some unplanned downtime. Read <a href=/static/state-of-the-madokami.txt>State of the Madokami</a> for more details, especially if you're currently or planning on doing any large-scale automated scraping of the site.</div>
 
         @section('main')
             <div id="loli-madokai-container">
