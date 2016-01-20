@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="robots" content="noindex,nofollow">
 
     <meta name="viewport" content="width=device-width" />
     <meta name="mobile-web-app-capable" content="yes">
@@ -89,7 +90,10 @@
             <div class="message message-success">{{{ Session::get('success') }}}</div>
         @endif
 
-        <div class="message message-info">Our goddess is back again, after some unplanned downtime. Read <a href=/static/state-of-the-madokami.txt>State of the Madokami</a> for more details, especially if you're currently or planning on doing any large-scale automated scraping of the site.</div>
+	<div class="message message-info">The FTP credentials have changed,
+check your favorite text file. Also check <a
+href=/Info/state-of-the-madokami.txt>State of The Madokami</a> for more info on
+recent changes.</div>
 
         @section('main')
             <div id="loli-madokai-container">
@@ -105,17 +109,5 @@
     @show
 
     {{ Minify::javascript(array($javascripts, $additionalJavascripts)) }}
-
-    @if(isset($gaId))
-        <script>
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-          ga('create', '{{{ $gaId }}}', 'auto');
-          ga('send', 'pageview');
-        </script>
-    @endif
 </body>
 </html>
