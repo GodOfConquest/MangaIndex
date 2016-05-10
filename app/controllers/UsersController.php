@@ -25,6 +25,27 @@ class UsersController extends BaseController {
         return View::make('notifications', $params);
     }
 
+    public function opml() {
+        // check we're not already logged in
+        if(!Auth::check()) {
+            // do auth
+            Auth::basic('username');
+        }
+
+        $user = Auth::user();
+
+        $watched = $user->series()->with('pathRecords')->get();
+
+        $params = array(
+            'watched' => $watched
+        );
+
+        return Response::make(View::make('opml', $params))->header(
+            'Content-Type', 'text/xml; charset=UTF-8')->header(
+            'Content-Disposition', 'attachment;filename=madokami-watched.opml'
+            );
+    }
+
     public function dismiss() {
         $user = Auth::user();
 

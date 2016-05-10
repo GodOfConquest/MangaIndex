@@ -33,6 +33,9 @@ Route::group(array('before' => 'auth'), function() {
     Route::get('/user/notifications/download/{notification}/{filename}', array('as' => 'notificationDownload', 'uses' => 'UsersController@downloadDismiss'));
 });
 
+// XXX has internal auth that supports basic
+Route::get('/user/watched.opml', array('as' => 'opml', 'uses' => 'UsersController@opml'));
+
 Route::get('/api/muid/{muId}', array('uses' => 'ApiController@muid'));
 Route::get('/api/register', array('uses' => 'ApiController@register'));
 Route::get('/api/changepassword', array('uses' => 'ApiController@changePassword'));
